@@ -17,4 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+
+const bodyParser = require ('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
 module.exports = app;

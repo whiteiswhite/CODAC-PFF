@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const User = require('../models/Users')
+
 const validateUserRegisterInput = require ('../validation/registerUser')
 
 /* GET users listing. */
@@ -29,6 +31,18 @@ router.post('/register', function (req, res, next) {
 
 
       })
+})
+
+router.get('/login', function (req, res, next) {
+
+})
+
+router.delete('/delete', function (req, res, next) {
+
+})
+
+router.patch('/update', function (req, res, next) {
+
 })
 
 
