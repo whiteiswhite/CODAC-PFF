@@ -21,6 +21,7 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import WorkSection from "./Sections/WorkSection.js";
+import UserPage from "../Utilisateurs/UserPage";
 
 const dashboardRoutes = [];
 
@@ -34,6 +35,7 @@ export default function LandingPage(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
+        href="http://localhost:3000/"
         brand="Material Kit React"
         rightLinks={<HeaderLinks />}
         fixed
@@ -65,6 +67,9 @@ export default function LandingPage(props) {
                 <i className="fas fa-play" />
                 Watch video
               </Button>
+                <Button color="danger" href="http://localhost:3000/profile-page">
+                    Profile Page
+                </Button>
             </GridItem>
           </GridContainer>
         </div>

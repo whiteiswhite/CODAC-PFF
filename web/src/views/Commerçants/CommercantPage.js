@@ -34,10 +34,16 @@ import work5 from "assets/img/examples/clem-onojegaw.jpg";
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
 import CustomInput from "../../components/CustomInput/CustomInput";
 import CustomDropdown from "../../components/CustomDropdown/CustomDropdown";
-import {Apps, EuroSymbol, Face, Speaker, SpeakerNotes, Tune} from "@material-ui/icons";
-import {TextareaAutosize, TextField} from "@material-ui/core";
+import {Apps, Email, EuroSymbol, Face, Speaker, SpeakerNotes, Store, Tune} from "@material-ui/icons";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import CustomTabs from "../../components/CustomTabs/CustomTabs";
 import SectionTabs from "../Components/Sections/SectionTabs";
+
+// import de composants de l'onglet de profil
+import ReductionPermanente from "../Components/Commerçants/Profile/ReductionPermanente";
+import OffrePonctuelle from "../Components/Commerçants/Profile/OffrePonctuelle";
+import Etablissement from "../Components/Commerçants/Profile/Etablissement";
+import Options from "../Components/Commerçants/Profile/Options";
 
 const useStyles = makeStyles(styles);
 
@@ -74,123 +80,43 @@ export default function CommercantPage(props) {
                             tabName: "Profil",
                             tabIcon: Face,
                             tabContent: (
-                                <p> coucou </p>
+                                <div>
+
+                                    <p> coucou </p>
+                                </div>
                             )
                         },
                         {
                             tabName: "Réduction permanente",
                             tabIcon: EuroSymbol,
                             tabContent: (
-                                <div>
-                                    <p> TEST </p>
-                                    <CustomInput labelText="Réduction"
-                                                 inputProps={{
-                                                     type: "number"
-                                                 }}
-                                    />
-                                    <Button
-                                        simple
-                                        size={"lg"}
-                                        color={"primary"}
-                                    > Changer la réduction permanante </Button>
-                                </div>
+                                <ReductionPermanente/>
                             )
                         },
                         {
                             tabName: "Offres ponctuelle",
                             tabIcon: SpeakerNotes,
                             tabContent: (
-                                <p> Salut, ici y'a la liste des offres publié par le commerçant</p>
+                                <OffrePonctuelle/>
+                            )
+                        },
+                        {
+                            tabName: "Etablissement",
+                            tabIcon: Store,
+                            tabContent: (
+                                <Etablissement/>
                             )
                         },
                         {
                             tabName: "Options",
                             tabIcon: Tune,
                             tabContent: (
-                                <p> Hey </p>
+                                <Options/>
                             )
                         }
                     ]}
                 />
-                {/*<div className={classes.container}>
-                    <GridContainer justify="center">
-                        <GridItem xs={12} sm={12} md={6}>
-                            <div className={classes.profile}>
-                                <div>
-                                    <img src={profile} className={imageClasses}/>
-                                </div>
-                                <div className={classes.name}>
-                                    <h3 className={classes.title}> Nom de l'utilisateur </h3>
-                                </div>
-                            </div>
-                        </GridItem>
-                    </GridContainer>
-                    <GridContainer justify="center">
-                        <TextField placeholder="Réduction permanente"/>
-                        <Button> Publiez la réduction</Button>
-                    </GridContainer>
-                    <CustomTabs
-                        headerColor="primary"
-                        backgroundColor="tranparent"
-                        tabs={[
-                            {
-                                tabName: "Profil",
-                                tabIcon: Face,
-                                tabContent: (
-                                    <p> coucou </p>
-                                )
-                            }
-                        ]}
-                    />
-                    <GridContainer justify="center">
 
-                        <GridItem xs={12} sm={12} md={6}>
-                            <CustomDropdown
-                                buttonText="Edition de l'email"
-                                buttonProps={{
-                                    className: classes.navLink,
-                                    color: "transparent"
-                                }}
-                                buttonIcon={Apps}
-                                dropdownList={[
-                                    <CustomInput
-                                        labelText="Ancienne adresse Email"
-                                        type="text"
-                                        color="info"
-                                    />,
-                                    <CustomInput
-                                    labelText="Nouvelle adresse Email"
-                                    type="text"
-                                    color="info"
-                                    />,
-                                    <CustomInput
-                                    labelText="Mot de passe"
-                                    type="text"
-                                    color="info"
-                                    />,
-                                    <Button color="primary">
-                                    test
-                                    </Button>
-                                ]}
-                                />
-                            <div>
-                                <CustomInput
-                                    labelText="Email"
-                                    type="text"
-                                    color="info"
-                                />
-                                <CustomInput
-                                    labelText="Mot de passe"
-                                    type="text"
-                                    color="info"
-                                />
-                                <Button color="primary">
-                                    test
-                                </Button>
-                            </div>
-                        </GridItem>
-                    </GridContainer>
-                </div>*/}
             </div>
             <Footer />
         </div>
