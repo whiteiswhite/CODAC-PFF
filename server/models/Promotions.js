@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const bcrypt = require('bcrypt');
 
-const userSchema = new Schema({
-    email: {
+const UserSchema = new mongoose.Schema({
+    username: {
         type: String,
         require: true,
         unique: true
     },
-    username:{
+    email: {
         type: String,
         require: true,
         unique: true
@@ -16,6 +16,7 @@ const userSchema = new Schema({
         type: String,
         require: true
     }
-})
+});
 
-module.exports = mongoose.model('Users', userSchema);
+
+module.exports = mongoose.model('User', UserSchema);

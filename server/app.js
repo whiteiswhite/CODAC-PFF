@@ -1,25 +1,17 @@
 var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
 var app = express();
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+var cookieParser = require('cookie-parser');
+var mongoose = require('mongoose');
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+mongoose.connect('mongodb+srv://white:bettercalljoy00@cluster0-v3tgs.mongodb.net/codac_pff', {useNewUrlParser : true, useUnifiedTopology: true, useCreateIndex: true}, () =>{
+        console.log("successfully connected to database")
+});
 
+const userRouter = require('./routes/User');
+app.use('/user', userRouter);
 
-const bodyParser = require ('body-parser')
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
-module.exports = app;
+app.listen(5000, () =>{
+    console.log('express server started')
+});

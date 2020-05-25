@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import AuthProvider from './Context/AuthContext';
 
 import "assets/scss/material-kit-react.scss?v=1.8.0";
 
@@ -11,27 +11,9 @@ import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage";
 import LoginPage from "views/LoginPage/LoginPage.js";
 
-//Utilisateurs
-import UserPage from "views/Utilisateurs/UserPage"
-
-
-//Commerçants
-import CommercantPage from "./views/Commerçants/CommercantPage";
-
-
-var hist = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-        <Route path="/shop-profile" component={CommercantPage} />
-        <Route path="/landing-page" component={LandingPage} />
-        <Route path="/profile-page" component={UserPage} />
-        <Route path="/login-page" component={LoginPage} />
-        <Route path="/" component={LandingPage} />
-
-
-    </Switch>
-  </Router>,
-  document.getElementById("root")
-);
+    <AuthProvider>
+        <App/>
+    </AuthProvider>,
+    document.getElementById('root'));

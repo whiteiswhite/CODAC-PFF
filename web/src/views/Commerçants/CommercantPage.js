@@ -58,18 +58,6 @@ export default function CommercantPage(props) {
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     return (
         <div>
-            <Header
-                color="transparent"
-                brand="Dealz"
-                href="http://localhost:3000"
-                rightLinks={<HeaderLinks />}
-                fixed
-                changeColorOnScroll={{
-                    height: 200,
-                    color: "white"
-                }}
-                {...rest}
-            />
             <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <CustomTabs
