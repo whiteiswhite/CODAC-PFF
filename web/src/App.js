@@ -5,7 +5,7 @@ import Login from './components/Login'
 import Register from "./components/Register";
 import CommercantPage from "./views/Commerçants/CommercantPage";
 import { BrowserRouter as Router, Route} from "react-router-dom";
-
+import MapPage from "./views/MapPage/MapPage"
 
 function App() {
     return (
@@ -15,6 +15,7 @@ function App() {
             <Route exath path={"/login"} component={Login}></Route>
             <Route exath path={"/register"} component={Register}></Route>
             <Route exatch path={"/shopper"} component={CommercantPage}></Route>
+            <Route exatch path={"/map"} component={MapPage}></Route>
         </Router>
     )
 }
