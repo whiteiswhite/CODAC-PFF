@@ -26,6 +26,8 @@ mongoose.connect(
 app.use("/user", userRouter);
 app.use("/promotion", promotionRouter);
 
+const etablissementRouter = require('./routes/Etablissement');
+app.use('/etablissement', etablissementRouter);
 app.listen(5000, () => {
   console.log("express server started");
 });

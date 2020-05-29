@@ -45,6 +45,7 @@ import OffrePonctuelle from "../Components/Commerçants/Profile/OffrePonctuelle"
 import Etablissement from "../Components/Commerçants/Profile/Etablissement";
 import Options from "../Components/Commerçants/Profile/Options";
 
+
 const useStyles = makeStyles(styles);
 
 export default function CommercantPage(props) {
