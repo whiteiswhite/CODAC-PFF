@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -18,21 +18,23 @@ import Parallax from "components/Parallax/Parallax.js";
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.js";
+
 import TeamSection from "./Sections/TeamSection.js";
 import WorkSection from "./Sections/WorkSection.js";
-import UserPage from "../Utilisateurs/UserPage";
+import MapSection from "./Sections/MapSection.js";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+export default function MapPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
+    
     <div>
       <Header
+      
         color="transparent"
         routes={dashboardRoutes}
         brand="Welcome on Dealz"
@@ -54,28 +56,17 @@ export default function LandingPage(props) {
               Hello X. You're logged into a Student account. If you are a seller, please log into your seller account to share with us.
               </h4>
               <br />
-              <Button
-                color="danger"
-                size="lg"
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas" />
-                Login
-              </Button>
-                <Button color="danger" href="http://localhost:3000/profile-page">
-                    Profile Page
-                </Button>
+        
             </GridItem>
           </GridContainer>
         </div>
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
-          <ProductSection />
-    
-        </div>
+     
+          
+     <MapSection />
+ 
+     
       </div>
       <Footer />
     </div>

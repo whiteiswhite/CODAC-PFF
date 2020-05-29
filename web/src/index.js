@@ -10,6 +10,7 @@ import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage";
 import LoginPage from "views/LoginPage/LoginPage.js";
+import MapPage from "views/MapPage/MapPage.js"
 
 
 ReactDOM.render(
