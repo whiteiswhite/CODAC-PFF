@@ -12,6 +12,9 @@ mongoose.connect('mongodb+srv://white:bettercalljoy00@cluster0-v3tgs.mongodb.net
 const userRouter = require('./routes/User');
 app.use('/user', userRouter);
 
+const etablissementRouter = require('./routes/Etablissement');
+app.use('/etablissement', etablissementRouter);
+
 app.listen(5000, () =>{
     console.log('express server started')
 });
