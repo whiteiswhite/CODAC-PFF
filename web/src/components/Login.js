@@ -8,8 +8,14 @@ const Login = props =>{
     const [message, setMessage] = useState(null);
     const authContent = useContext(AuthContext);
 
+
+
     const onChange = e => {
         setUser({...user,[e.target.name] : e.target.value})
+    };
+
+    const resetForm = () =>{
+        setUser({username : '', password : ''})
     };
 
     const onSubmit = e =>{
@@ -19,9 +25,9 @@ const Login = props =>{
             if(isAuthenticated){
                 authContent.setUser(user);
                 authContent.setIsAuthenticated(isAuthenticated);
-                props.history.push('/');
             } else
                 setMessage(message);
+                resetForm();
         })
     };
 
@@ -34,14 +40,17 @@ const Login = props =>{
                        name={"username"}
                        onChange={onChange}
                        className={"form-control"}
-                       placeholder={"Enter Username"}/>
+                       placeholder={"Enter Username"}
+                       value={user.username}
+                       required={true}/>
                 <label htmlFor={"password"} className={"sr-only"}>Password: </label>
                 <input type={"password"}
                        name={"password"}
                        onChange={onChange}
                        className={"form-control"}
-                       placeholder={"Enter Password"}/>
-
+                       placeholder={"Enter Password"}
+                       value={user.password}
+                       required={true}/>
                 <button className={"btn btn-lg btn-primary btn-block"}
                         type={"submit"}
                         >Log in

@@ -1,7 +1,38 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import Parallax from "./Parallax/Parallax";
+import Register from "./Register";
+import Login from "./Login";
+import {AuthContext} from "../Context/AuthContext";
+import {Link} from 'react-router-dom'
 
-const Home = () =>(
-    <h1>Bievenue sur Dealz</h1>
-);
+const Home = props => {
+    const {isAuthenticated, user, setIsAuthenticated, setUser} = useContext(AuthContext);
+    // TODO : Recover password
+
+    const unauthenticatedHomePage = () =>{
+        return(
+            <div>
+                <Login/>
+                <Link to={'/register'}>Vous n'avez pas encore de compte ? Enregistrez-vous</Link>
+
+            </div>
+        )
+    };
+
+    const authenticatedHomePage = () => {
+        return(
+            <div>
+                <h1>Bienvenue sur Dealz</h1>
+            </div>
+        )
+    }
+
+    return (
+        <div>
+            { !isAuthenticated ? unauthenticatedHomePage() : authenticatedHomePage()}
+        </div>
+
+    )
+}
 
 export default Home;

@@ -1,22 +1,24 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        require: true,
-        unique: true
+const PromotionSchema = new mongoose.Schema({
+  etablissement: {
+    nom: String,
+    adresse: {
+      adresse: String,
+      ville: String,
     },
-    email: {
-        type: String,
-        require: true,
-        unique: true
-    },
-    password:{
-        type: String,
-        require: true
-    }
+  },
+  nom: {
+    type: String,
+    required: true,
+  },
+  offre: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+  },
 });
 
-
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("Promotion", PromotionSchema);
