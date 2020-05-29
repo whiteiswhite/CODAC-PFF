@@ -12,12 +12,16 @@ const etablissementSchema = new Schema({
         require: true,
         unique: true
     },
-    siret:{
+    siren:{
         type: String,
         require: true,
         unique: true
     },
-    reduction_permanente: {
+    promoPermanente: {
+        type: String,
+        require: true
+    },
+    commercant:{
         type: String,
         require: true
     }
