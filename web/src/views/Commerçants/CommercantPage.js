@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -17,7 +18,6 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import NavPills from "components/NavPills/NavPills.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-
 import profile from "assets/img/faces/christian.jpg";
 
 import studio1 from "assets/img/examples/studio-1.jpg";
@@ -34,7 +34,16 @@ import work5 from "assets/img/examples/clem-onojegaw.jpg";
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
 import CustomInput from "../../components/CustomInput/CustomInput";
 import CustomDropdown from "../../components/CustomDropdown/CustomDropdown";
-import {Apps, Email, EuroSymbol, Face, Speaker, SpeakerNotes, Store, Tune} from "@material-ui/icons";
+import {
+  Apps,
+  Email,
+  EuroSymbol,
+  Face,
+  Speaker,
+  SpeakerNotes,
+  Store,
+  Tune,
+} from "@material-ui/icons";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import CustomTabs from "../../components/CustomTabs/CustomTabs";
 import SectionTabs from "../Components/Sections/SectionTabs";
@@ -45,69 +54,61 @@ import OffrePonctuelle from "../Components/Commerçants/Profile/OffrePonctuelle"
 import Etablissement from "../Components/Commerçants/Profile/Etablissement";
 import Options from "../Components/Commerçants/Profile/Options";
 
-
 const useStyles = makeStyles(styles);
 
 export default function CommercantPage(props) {
-    const classes = useStyles();
-    const { ...rest } = props;
-    const imageClasses = classNames(
-        classes.imgRaised,
-        classes.imgRoundedCircle,
-        classes.imgFluid
-    );
-    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
-    return (
-        <div>
-            <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
-            <div className={classNames(classes.main, classes.mainRaised)}>
-                <CustomTabs
-                    headerColor="primary"
-                    backgroundColor="tranparent"
-                    tabs={[
-                        {
-                            tabName: "Profil",
-                            tabIcon: Face,
-                            tabContent: (
-                                <div>
-
-                                    <p> coucou </p>
-                                </div>
-                            )
-                        },
-                        {
-                            tabName: "Réduction permanente",
-                            tabIcon: EuroSymbol,
-                            tabContent: (
-                                <ReductionPermanente/>
-                            )
-                        },
-                        {
-                            tabName: "Offres ponctuelle",
-                            tabIcon: SpeakerNotes,
-                            tabContent: (
-                                <OffrePonctuelle/>
-                            )
-                        },
-                        {
-                            tabName: "Etablissement",
-                            tabIcon: Store,
-                            tabContent: (
-                                <Etablissement/>
-                            )
-                        },
-                        {
-                            tabName: "Options",
-                            tabIcon: Tune,
-                            tabContent: (
-                                <Options/>
-                            )
-                        }
-                    ]}
-                />
-
-            </div>
-            <Footer />
-        </div>
-    );
+  const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(
+    AuthContext
+  );
+  const classes = useStyles();
+  const { ...rest } = props;
+  const imageClasses = classNames(
+    classes.imgRaised,
+    classes.imgRoundedCircle,
+    classes.imgFluid
+  );
+  const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+  return (
+    <div>
+      <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
+      <div className={classNames(classes.main, classes.mainRaised)}>
+        <CustomTabs
+          headerColor="primary"
+          backgroundColor="tranparent"
+          tabs={[
+            {
+              tabName: "Profil",
+              tabIcon: Face,
+              tabContent: (
+                <div>
+                  <p> coucou </p>
+                </div>
+              ),
+            },
+            {
+              tabName: "Réduction permanente",
+              tabIcon: EuroSymbol,
+              tabContent: <ReductionPermanente />,
+            },
+            {
+              tabName: "Offres ponctuelle",
+              tabIcon: SpeakerNotes,
+              tabContent: <OffrePonctuelle />,
+            },
+            {
+              tabName: "Etablissement",
+              tabIcon: Store,
+              tabContent: <Etablissement />,
+            },
+            {
+              tabName: "Options",
+              tabIcon: Tune,
+              tabContent: <Options />,
+            },
+          ]}
+        />
+      </div>
+      <Footer />
+    </div>
+  );
 }

@@ -7,7 +7,7 @@ export default {
     });
   },
 
-  postTodo: (promotion) => {
+  postPromotion: (promotion) => {
     return fetch("/promotion", {
       method: "post",
       body: JSON.stringify(promotion),

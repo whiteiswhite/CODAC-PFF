@@ -4,7 +4,7 @@ const PromotionSchema = new mongoose.Schema({
   etablissement: {
     nom: String,
     adresse: {
-      adresse: String,
+      rue: String,
       ville: String,
     },
   },
