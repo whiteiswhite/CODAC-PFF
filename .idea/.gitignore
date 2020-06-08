@@ -1,6 +1,13 @@
 # Default ignored files
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /workspace.xml
 =======
 /workspace.xml
+>>>>>>> Stashed changes
+=======
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
 >>>>>>> Stashed changes
