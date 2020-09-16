@@ -18,7 +18,7 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import { formatRelative } from "date-fns";
-import './index.css';
+//import './index.css';
 import "@reach/combobox/styles.css";
 import mapStyles from "./mapStyles";
 
